@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
 :root {
+  --paragraph01: #000000;
   --background: #ffffff;
-  --foreground: #171717;
+  --accent01: #1B234B;
+  --accent02: #252525;
+  --accent03: #4F1212;
+  --accent04: #969F7D;
+  --accent05: #F8EDDE;
+  --accent06: #D3C8BA;
+  --accent07: #D7DCE7;
+  --accent08: #EEA6A6;
+  --accent09: #FFFFFF;
+  --font-sans: var(--font-rubik);
+  --font-mono: var(--font-fragment-mono);
+  --font-display: var(--font-rubik-bubbles);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  color: var(--paragraph01);
+  font-family: var(--font-fragment-mono), monospace;
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.color-paragraph01 { color: var(--paragraph01) }
+.color-accent01 { color: var(--accent01) }
+.color-accent02 { color: var(--accent02) }
+.color-accent03 { color: var(--accent03) }
+.color-accent04 { color: var(--accent04) }
+.color-accent05 { color: var(--accent05) }
+.color-accent06 { color: var(--accent06) }
+.color-accent07 { color: var(--accent07) }
+.color-accent08 { color: var(--accent08) }
+.color-accent09 { color: var(--accent09) }
+
+.font-sans { font-family: var(--font-sans); }
+.font-mono { font-family: var(--font-mono); }
+.font-display { font-family: var(--font-display); }
+
+/* animation utility */
+.animation-rotate {
+  transition: transform 0.5s ease;
+  &:nth-child(odd):hover {
+    transform: scale(1.01) rotate(-1deg);
+  }
+  &:nth-child(even):hover {
+    transform: scale(1.01) rotate(1deg);
+  }
+}
+
+/* add utility */
+@media screen and (min-width: 1200px) {
+  .lg-wide {
+    width: calc((100% - 10px) / 2) !important;
+  }
+  .lg-wide img {
+    width: 100%;
+    height: auto;
+  }
 }
